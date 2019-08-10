@@ -1,7 +1,7 @@
 /**
-*    Tixte Development Kit(TDK) JS Library 1.0.0 beta
+*    Tixte Development Kit(TDK) 1.0.0 beta
 *
-*    The Tixte Development Kit JS Library is subject to the Apache License Version 2.0 as shown below
+*    The Tixte Development Kit is subject to the Apache License Version 2.0 as shown below
 *
 
                                  Apache License
