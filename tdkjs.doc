@@ -40,7 +40,7 @@ tdk.rect(x, y, width, height):
      height should be between 0-100, 0 being nothing and 100 being edge to edge. The TDK canvas
      must be initialized(see: tdk.init());
 
-tdk.rect(x, y, radius):
+tdk.circle(x, y, radius):
      This will draw a circle on the TDK canvas. The first parameter is the x coordinate. The x
      coordinate should be between 0-100, 0 being center and 100 being fully right. The second
      parameter is the y coordinate. The y coordinate should be between 0-100, 0 being center
