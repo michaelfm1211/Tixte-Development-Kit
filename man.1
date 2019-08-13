@@ -1,0 +1,49 @@
+tdk.message(title, message), tdk.info(title, message), tdk.popup(title, message):
+     This will display a popup message suitable for giving the user information.
+tdk.alert(title, message), tdk.warning(title, message), tdk.error(title, message):
+     This will display a popup message suitable for present an alert, warning, or reporting an error
+     to the user
+
+tdk.accessDenied(title, message), tdk.bad(title, message), tdk.noaccess(title, message):
+     This will display a popup message suitable for present the user with a access denied message,
+     or a no access message. This is best for restricting access to the user.
+
+animate:
+     This is a function the user should define. If defined it will be called repeatedly at a rate
+     suitable for the user's browser. This should only be used for animation with the TDK canvas,
+     for other repeated actions, use tdk.interval. Please note that this function will clear the
+     canvas every time so you must repeatedly draw items to the TDK canvas. This requires the TDK
+     canvas to be initialized(see: tdk.init())
+
+tdk.interval(function(){}, seconds), tdk.interval(function(){}):
+     This will do a specific task(an anonymous function, first parameter) every amount of
+     seconds(number, second parameter). If only the task(an anonymous function, first parameter) is passed
+     then the task will be called repeatedly at a rate suitable for the user's browser.
+
+tdk.setColor(name):
+     This will change what the color is of the objects being draw to the TDK canvas. The TDK canvas
+     must be initialized(see: tdk.init());
+
+tdk.outline(width):
+     This will draw only the outline of all future shapes unless otherwise specified(see:
+     tdk.fill()). The width parameter will determine how thick the outlines should be.
+
+tdk.fill():
+     This will draw the entire of all future shapes unless otherwise specified(see: tdk.outline())
+
+tdk.rect(x, y, width, height):
+     This will draw a rectangle on the TDK canvas. The first parameter is the x coordinate. The x
+     coordinate should be between 0-100, 0 being center and 100 being fully right. The second
+     parameter is the y coordinate. The y coordinate should be between 0-100, 0 being center
+     and 100 being fully bottom. The third parameter is the width. The width should be between
+     0-100, 0 being nothing and 100 being edge to edge. The fourth parameter is the height. The
+     height should be between 0-100, 0 being nothing and 100 being edge to edge. The TDK canvas
+     must be initialized(see: tdk.init());
+
+tdk.circle(x, y, radius):
+     This will draw a circle on the TDK canvas. The first parameter is the x coordinate. The x
+     coordinate should be between 0-100, 0 being center and 100 being fully right. The second
+     parameter is the y coordinate. The y coordinate should be between 0-100, 0 being center
+     and 100 being fully bottom. The third parameter is the radius. The radius should be between
+     0-100, 0 being nothing and 100 being edge to edge. The TDK canvas must be initialized(see:
+     tdk.init());
