@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+let fs = require("fs")
+
+let argv = process.argv
+let filecode = `<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    </head>
+    <body>
+        <script src="https://rawcdn.githack.com/tixte/Tixte-Development-Kit/c737db728a769dba63275bccb7282fe63c621d66/tdk.js" charset="utf-8"></script>
+        <script>
+`
+
+fs.readFile(argv[2], { encoding: 'utf-8' }, function(err, data) {
+    if (!err) {
+        console.log(argv[2] + " read:");
+
+        filecode += data
+        filecode += `
+        </script>
+    </body>
+</html>`
+
+        fs.writeFile(argv[3], filecode, (err) => {
+            if (err) {
+                console.log(err);
+            };
+
+            console.log(argv[3] + " written to");
+        })
+    } else {
+        console.log(err);
+    }
+})
