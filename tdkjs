@@ -17,24 +17,29 @@ let filecode = `<!DOCTYPE html>
         <script>
 `
 
-fs.readFile(argv[2], { encoding: 'utf-8' }, function(err, data) {
-    if (!err) {
-        console.log(argv[2] + " read:");
+try {
+    fs.readFile(argv[2], { encoding: 'utf-8' }, function(err, data) {
+        if (!err) {
+            console.log(argv[2] + " read:");
 
-        filecode += data
-        filecode += `
-        </script>
-    </body>
-</html>`
+            filecode += data
+            filecode += `
+            </script>
+        </body>
+    </html>`
 
-        fs.writeFile(argv[3], filecode, (err) => {
-            if (err) {
-                console.log(err);
-            };
+            fs.writeFile(argv[3], filecode, (err) => {
+                if (err) {
+                    console.log(err);
+                };
 
-            console.log(argv[3] + " written to");
-        })
-    } else {
-        console.log(err);
-    }
-})
+                console.log(argv[3] + " written to");
+            })
+        } else {
+            console.log(err);
+        }
+    })
+} catch (error) {
+    console.log("Usage: tdkjs input.js output.html")
+    console.error("An Error Occurred. You most likley put in invalid parameters. Your first parameter must be an input JavaScript file. Your second paramter must be an output filename.")
+}

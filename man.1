@@ -47,3 +47,25 @@ tdk.circle(x, y, radius):
      and 100 being fully bottom. The third parameter is the radius. The radius should be between
      0-100, 0 being nothing and 100 being edge to edge. The TDK canvas must be initialized(see:
      tdk.init());
+
+tdk.shape(points):
+     This will draw an irregular shape. The only parameter is an array of points. The array passed
+     into the function should consist of arrays. Each array inside the array should represent a
+     point. For example drawing a triangle may look like this: 
+     tdk.shape([ [-20, -20], [-20, 20], [20, 0] ])
+
+tdk.line(point1, point2, lineWid):
+     This will draw a line. The first parameter should be an array representing the first/starting 
+     point. The second parameter should be an array representing the second/ending point. The last 
+     parameter should be the line width. For example a strait line may look like this: 
+     tdk.line([-20, 0], [20, 0], 5)
+
+tdk.image(x, y, url):
+     This will draw a image on the TDK canvas. The first parameter is the x coordinate. The x
+     coordinate should be between 0-100, 0 being center and 100 being fully right. The second
+     parameter is the y coordinate. The y coordinate should be between 0-100, 0 being center
+     and 100 being fully bottom. The third parameter is the URL of the image you want to
+     display in a String.
+
+
+

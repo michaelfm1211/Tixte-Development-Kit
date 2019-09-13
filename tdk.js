@@ -190,7 +190,7 @@ let tdk = {
             swal({
                 icon: "warning",
                 title: "Programming Error",
-                text: "TDK noticed that there was an error in this pages programming. The developer tried to draw a rectangle on the TDK canvas, but no TDK canvas was initalized(see: tdk.init()).",
+                text: "TDK noticed that there was an error in this pages programming. The developer tried to draw a cirlce on the TDK canvas, but no TDK canvas was initalized(see: tdk.init()).",
                 closeOnClickOutside: false
             })
         }
@@ -208,7 +208,95 @@ let tdk = {
             window.tdk_ctx.stroke();
         }
     },
+    shape: function(points) {
+        if (window.tdk_canvas == undefined || window.tdk_canvas == null) {
+            swal({
+                icon: "warning",
+                title: "Programming Error",
+                text: "TDK noticed that there was an error in this pages programming. The developer tried to draw a shape on the TDK canvas, but no TDK canvas was initalized(see: tdk.init()).",
+                closeOnClickOutside: false
+            })
+            return
+        }
 
+        if (window.tdk_canvas == undefined || window.tdk_canvas == null) {
+            swal({
+                icon: "warning",
+                title: "Programming Error",
+                text: "TDK noticed that there was an error in this pages programming. The developer tried to draw a shape on the TDK canvas, but only specificed a 1-Dimensional Point.",
+                closeOnClickOutside: false
+            })
+            return
+        }
+
+        window.tdk_ctx.beginPath();
+
+        for (let i = 0; i < points.length; i++) {
+            const point = points[i];
+            if (i == 0) {
+                window.tdk_ctx.moveTo(point[0] * 3 + 300, point[1] * 3 + 300);
+            } else if (i > 0) {
+                window.tdk_ctx.lineTo(point[0] * 3 + 300, point[1] * 3 + 300);
+            }
+
+        }
+
+        if (points.length == 2) {
+            window.tdk_ctx.stroke();
+        } else if (window.tdk_fill) {
+            window.tdk_ctx.fill();
+        } else if (window.tdk_outline) {
+            window.tdk_ctx.stroke();
+        }
+    },
+
+    line: function(point1, point2, width) {
+        if (window.tdk_canvas == undefined || window.tdk_canvas == null) {
+            swal({
+                icon: "warning",
+                title: "Programming Error",
+                text: "TDK noticed that there was an error in this pages programming. The developer tried to draw a line on the TDK canvas, but no TDK canvas was initalized(see: tdk.init()).",
+                closeOnClickOutside: false
+            })
+            return
+        }
+
+        window.tdk_ctx.beginPath();
+
+        window.tdk_ctx.moveTo(point1[0] * 3 + 300, point1[1] * 3 + 300);
+        window.tdk_ctx.lineTo(point2[0] * 3 + 300, point2[1] * 3 + 300);
+
+        var tmp = window.tdk_ctx.lineWidth
+        window.tdk_ctx.lineWidth = width.toString()
+        window.tdk_ctx.stroke();
+        window.tdk_ctx.lineWidth = tmp
+    },
+
+    image: function(x, y, src) {
+        if (window.tdk_canvas == undefined || window.tdk_canvas == null) {
+            swal({
+                icon: "warning",
+                title: "Programming Error",
+                text: "TDK noticed that there was an error in this pages programming. The developer tried to draw an image on the TDK canvas, but no TDK canvas was initalized(see: tdk.init()).",
+                closeOnClickOutside: false
+            })
+            return
+        }
+
+        if (window.tixte_image_src == undefined || src != window.tixte_image_src) {
+            // This will be called if no image has been drawn before
+            window.tixte_image_src = src
+
+            window.tixte_img = new Image();
+            window.tixte_img.onload = function() {
+                window.tdk_ctx.drawImage(window.tixte_img, x, y);
+            };
+            window.tixte_img.src = window.tixte_image_src;
+            return
+        }
+        // This will just redraw the image instead of fetching it again or changin the source.
+        window.tdk_ctx.drawImage(window.tixte_img, x, y);
+    },
 }
 
 const _tdk = tdk;

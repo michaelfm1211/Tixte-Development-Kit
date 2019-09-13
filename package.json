@@ -1,6 +1,6 @@
 {
     "name": "tdkjs",
-    "version": "2.4.0",
+    "version": "3.0",
     "description": "The Tixte Development Kit(TDK) is a suite of utilities and libraries to make developing games for Tixte easy",
     "main": "tdk.js",
     "dependencies": {},
@@ -25,5 +25,5 @@
     "bugs": {
         "url": "https://github.com/tixte/Tixte-Development-Kit/issues"
     },
-    "homepage": "https://github.com/tixte/Tixte-Development-Kit#readme"
+    "homepage": "https://tdk.developer.tixte.com"
 }
