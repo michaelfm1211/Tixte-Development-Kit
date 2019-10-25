@@ -1,29 +1,29 @@
 {
     "name": "tdkjs",
-    "version": "3.0",
+    "version": "3.2.0",
     "description": "The Tixte Development Kit(TDK) is a suite of utilities and libraries to make developing games for Tixte easy",
-    "main": "tdk.js",
+    "main": "./src/tdk.js",
     "dependencies": {},
     "bin": {
         "tdkjs": "./tdkjs"
     },
-    "man": "./man.1",
+    "man": "./share/man/tdkjs.1",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/tixte/Tixte-Development-Kit.git"
+        "url": "git+https://github.com/michaelfm1211/Tixte-Development-Kit.git"
     },
     "keywords": [
         "tdk",
         "tdkjs",
         "tixte"
     ],
-    "author": "The Tixte Group and The MicMacro Technology Group",
+    "author": "Michael McNulty for The Tixte Group",
     "license": "SEE LICENSE IN license.txt",
     "bugs": {
-        "url": "https://github.com/tixte/Tixte-Development-Kit/issues"
+        "url": "https://github.com/michaelfm1211/Tixte-Development-Kit/issues"
     },
     "homepage": "https://tdk.developer.tixte.com"
 }
